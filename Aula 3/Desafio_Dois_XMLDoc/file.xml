@@ -1,0 +1,17 @@
+<informacoes>
+	<porta>3000</porta>
+	<contatos>
+		<contato>
+			<nome>Rafael</nome>
+			<telefone>4830341232</telefone>
+		</contato>
+		<contato>
+			<nome>Fabiano</nome>
+			<telefone>4899945794</telefone>
+		</contato>
+		<contato>
+			<nome>Paulo</nome>
+			<telefone>4899549512</telefone>
+		</contato>
+	</contatos>
+</informacoes>

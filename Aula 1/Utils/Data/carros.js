@@ -1,4 +1,4 @@
-var Carro = require('../domain/carros');
+var Carro = require('../Domain/carros');
 
 var carros = [
     new Carro("Wolksvagem", "Gol", 2010, "Vermelho", "1.0", 22000),

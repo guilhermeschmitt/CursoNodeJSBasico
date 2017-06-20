@@ -1,5 +1,5 @@
 var net = require('net');
-var teclado = require('./teclado.js');
+var teclado = require('../Utils/teclado');
 
 var client = net.connect(5555);
 client.on('connect', function () {

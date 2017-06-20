@@ -1,7 +1,7 @@
 var PORT = 33333;
 var HOST = '127.0.0.1';
 var dgram = require('dgram');
-var teclado = require('./teclado.js');
+var teclado = require('../Utils/teclado');
 var options = process.argv.slice(2);
 
 if (options.length < 1) {

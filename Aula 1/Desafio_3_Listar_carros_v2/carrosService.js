@@ -1,4 +1,4 @@
-var carros = require('./data/carros');
+var carros = require('../Utils/Data/carros');
 module.exports = function pegarCarro(modelo){
     var resultados = [];
     modelo = modelo.toString();
