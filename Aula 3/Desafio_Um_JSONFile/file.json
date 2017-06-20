@@ -1,0 +1,20 @@
+{
+	"porta": 3000,
+	"contatos": [{
+			"nome": "Rafael",
+			"telefone": "48999945465"
+		},
+		{
+			"nome": "Fabiano",
+			"telefone": "48999548798"
+		},
+		{
+			"nome": "Paulo",
+			"telefone": "4830305465"
+		},
+		{
+			"nome": "Vinicius",
+			"telefone": "4832456512"
+		}
+	]
+}

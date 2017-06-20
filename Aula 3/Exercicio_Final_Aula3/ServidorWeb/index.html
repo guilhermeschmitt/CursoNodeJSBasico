@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src=/socket.io/socket.io.js></script>
+ <script>
+    var socket = io();
+    socket.on('devices', function(device){
+     console.log(device)
+          list ="<li>" + device.id_device + " | "  +  device.name_device + " | " + device.device_value    +    "</li>";
+           $("#devicelist").append(list);  
+     });
+  </script>
+</head>
+<body>
+
+  <div data-role="page" id="pageone">
+    <div data-role="main" class="ui-content">
+      <h2>Lista de Dispositivos:</h2>
+      <ul  id="devicelist">
+            </ul>    
+    </div>
+  </div>
+
+
+</body>
+
+</html>
