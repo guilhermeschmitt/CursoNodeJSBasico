@@ -3,27 +3,23 @@ var mongo = require('./model')()
 module.exports = function () {
     controller = {};
 
-    // Buscando todos os contatos, preciso fazer ele retornar um JSON ou alguma coisa pro meu index
-    controller.findAll = function () {
+    // Buscando todos os contatos
+    controller.findAll = function (res) {
         mongo.find(function (err, contacts) {
             if (err) return console.error(err);
-            console.log(contacts);
-
-            var a = JSON.parse(JSON.stringify(contacts));
-            console.log(typeof (a));
-            return a;
+            res.send(JSON.parse(JSON.stringify(contacts)));
         });
     };
 
     // Buscando um unico contato pelo id
-    controller.findOne = function (v_id) {
-        mongo.findOne({ id: v_id }, function (err, id) {
+    controller.findOne = function (req, res) {
+        mongo.findOne({ id: req.params.id}, function (err, contact) {
             if (err) return console.error(err);
-            console.log(id);
+            res.send(JSON.parse(JSON.stringify(contact)));
         });
     };
 
-    // salva contato, função ta funcionando.
+    // salva contato
     controller.save = function (v_id, v_nome, v_email) {
         var contact = new mongo({
             id: v_id,
@@ -37,12 +33,10 @@ module.exports = function () {
     }
 
     // remove contato
-    controller.removeContact = function (_id) {
-        console.log(_id);
-
-        mongo.remove({ "id": _id }, function (err, element) {
+    controller.removeContact = function (req, res) {
+        mongo.remove({ "id": req.params.id}, function (err, element) {
             if (err) return console.error(err);
-            console.log("deletou id: " + _id);
+            res.send("deletou id: " + req.params.id)
         });
     }
 
