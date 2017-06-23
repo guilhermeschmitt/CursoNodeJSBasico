@@ -17,33 +17,26 @@ app.post('/contatos', function(req, res){
 //Faz o update de UM contato
 app.put('/contatos/:id', function(req, res){ 
 	var aux = {};
-		aux.id = req.body.id;
-		aux.nome = req.body.nome;
-		aux.email = req.body.email;
-		controller.updateContact(req.params.id, aux);
-		res.send("OK");
-});
-
-//TODO Nao esta enviando o objeto JSON
-//Porém, está funcionando :)
-app.delete('/contatos/:id', function(req, res){
-	controller.removeContact(req.params.id);
+	aux.id = req.body.id;
+	aux.nome = req.body.nome;
+	aux.email = req.body.email;
+	controller.updateContact(req.params.id, aux);
 	res.send("OK");
-
-	//res.json(contatos);
-	//Deleta o contato com determinado ID
 });
 
-//TODO Nao esta enviando o objeto JSON
+//Deleta um contato de acordo com o id
+app.delete('/contatos/:id', function(req, res){
+    controller.removeContact(req, res);
+});
+
+//Pega todos os contatos
 app.get('/contatos', function(req, res){
-	var contacts = controller.findAll();
-	res.send(contacts);
+    controller.findAll(res);
 })
 
-//TODO Nao esta enviando o objeto JSON
+//Pega um contato de acordo com o id
 app.get('/contatos/:id', function(req, res){
-	var contact = controller.findOne(req.params.id);
-	res.send(contact);
+	controller.findOne(req, res);
 })
 
 app.listen(3000,function(){
